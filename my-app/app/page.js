@@ -79,13 +79,17 @@ const Page = () => {
             className="p-2 border rounded-md text-lg text-black"
           />
           <select
-            name=""
-            onChange={(e) => SetPlatformValue(e.target.value)}
-            className=""
+            name="currencies"
+            className="p-2 border rounded-md text-lg text-black"
+            onChange={handleSelectSecond}
           >
-            <option value="Netflix">Increased Votes</option>
-            <option value="Amazon">Decreased Votes</option>
-            <option value="YouTube">A to Z</option>
+            {Object.keys(currencies).map((currency, index) => {
+              return (
+                <option key={index} value={currencies[currency]}>
+                  {currency}
+                </option>
+              );
+            })}
           </select>
         </div>
       </div>
