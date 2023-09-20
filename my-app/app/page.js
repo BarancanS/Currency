@@ -20,7 +20,7 @@ const Page = () => {
     )
       .then((response) => response.json())
       .then((data) => {
-        setCurrencies(data);
+        setCurrencies(data.rates);
       })
       .catch((err) => {
         console.log(err);
