@@ -41,9 +41,6 @@ const Page = () => {
     window.location.reload(false);
   }
 
-  console.log(currencies);
-  console.log(firstValue);
-
   return (
     <div className="w-full h-screen flex flex-col gap-2 items-center justify-center text-black">
       <h1 className="text-white text-4xl mb-4">Currency App</h1>
