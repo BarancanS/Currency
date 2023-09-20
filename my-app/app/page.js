@@ -81,7 +81,7 @@ const Page = () => {
           <select
             name=""
             onChange={(e) => SetPlatformValue(e.target.value)}
-            className="bg-black border-2"
+            className=""
           >
             <option value="Netflix">Increased Votes</option>
             <option value="Amazon">Decreased Votes</option>
