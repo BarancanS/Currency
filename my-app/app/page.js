@@ -55,7 +55,6 @@ const Page = () => {
           />
           <select
             name="currencies"
-            value="currency"
             className="p-2 border rounded-md text-lg text-black"
             onChange={handleSelect}
           >
@@ -83,6 +82,9 @@ const Page = () => {
             className="p-2 border rounded-md text-lg text-black"
             onChange={handleSelectSecond}
           >
+            <option value="" selected>
+              Select Currency
+            </option>
             {Object.keys(currencies).map((currency, index) => {
               return (
                 <option key={index} value={currencies[currency]}>
@@ -93,7 +95,7 @@ const Page = () => {
           </select>
         </div>
       </div>
-      <div className="flex flex-col gap-2 text-white">
+      <div className="flex flex-row mt-2 max-md:flex-col gap-2 text-white">
         <button
           onClick={calculate}
           className="bg-blue-800 px-4 py-2 rounded-md hover:bg-blue-600 transition-all duration-300"
