@@ -72,7 +72,7 @@ const Page = () => {
             })}
           </select>
         </div>
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col-reverse gap-2">
           <input
             type="number"
             ref={ref}
@@ -97,7 +97,7 @@ const Page = () => {
           </select>
         </div>
       </div>
-      <div className="flex flex-row mt-2 max-md:flex-col gap-2 text-white">
+      <div className="flex flex-row mt-2 gap-2 text-white">
         <button
           onClick={calculate}
           className="bg-blue-800 px-4 py-2 rounded-md hover:bg-blue-600 transition-all duration-300"
