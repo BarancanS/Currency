@@ -1,6 +1,5 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
-import axios from "axios";
 
 const Page = () => {
   const [currencies, setCurrencies] = useState({});
