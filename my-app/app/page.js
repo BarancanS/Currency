@@ -12,17 +12,19 @@ const Page = () => {
   useEffect(() => {
     getApi();
   }, [firstValue, secondValue, text1]);
+  const getApi = async () => {
+    return fetch(
+      "http://data.fixer.io/api/latest?access_key=1ebcee8d236f29a6525a4178da7f9ab9"
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        setCurrencies(data.rates);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
-  async function getApi() {
-    try {
-      const response = await axios.get(
-        "http://data.fixer.io/api/latest?access_key=1ebcee8d236f29a6525a4178da7f9ab9"
-      );
-      setCurrencies(response.data.rates);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  }
   function handleSelect(e) {
     setFirstValue(e.target.value);
   }
