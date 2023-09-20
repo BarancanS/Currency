@@ -54,7 +54,7 @@ const Page = () => {
             className="p-2 border rounded-md text-lg text-black"
           />
           <select
-            name=""
+            name="currencies"
             id=""
             className="p-2 border rounded-md text-lg text-black"
             onChange={handleSelect}
@@ -77,7 +77,7 @@ const Page = () => {
             className="p-2 border rounded-md text-lg text-black"
           />
           <select
-            name=""
+            name="currencies"
             id=""
             className="p-2 border rounded-md text-lg text-black"
             onChange={handleSelectSecond}
