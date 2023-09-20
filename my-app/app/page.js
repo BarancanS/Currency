@@ -55,8 +55,6 @@ const Page = () => {
     // setText1(1);
     ref.current.value = "";
   }
-
-  console.log(currencies);
   return (
     <div className="w-full h-screen flex flex-col items-center justify-center text-black">
       <h1 className="text-white text-4xl mb-4">Currency App</h1>
