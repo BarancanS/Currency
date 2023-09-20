@@ -5,43 +5,50 @@ import axios from "axios";
 const Page = () => {
   const [currencies, setCurrencies] = useState({});
   const [text1, setText1] = useState(1);
-  const [firstValue, setFirstValue] = useState();
-  const [secondValue, setSecondValue] = useState();
-  const [totalValue, setTotalValue] = useState();
+  const [firstValue, setFirstValue] = useState("");
+  const [secondValue, setSecondValue] = useState("");
+  const [totalValue, setTotalValue] = useState("");
   const ref = useRef(text1);
+
   useEffect(() => {
     getApi();
   }, [firstValue, secondValue, text1]);
+
   const getApi = async () => {
-    return fetch(
-      "https://data.fixer.io/api/latest?access_key=1ebcee8d236f29a6525a4178da7f9ab9"
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        setCurrencies(data.rates);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    try {
+      const response = await axios.get(
+        "http://data.fixer.io/api/latest?access_key=1ebcee8d236f29a6525a4178da7f9ab9"
+      );
+      setCurrencies(response.data.rates || {}); // Ensure currencies is always an object
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   function handleSelect(e) {
     setFirstValue(e.target.value);
   }
+
   function handleSelectSecond(e) {
     setSecondValue(e.target.value);
   }
+
   function calculate() {
-    setTotalValue((secondValue / firstValue) * text1);
+    if (firstValue && secondValue) {
+      setTotalValue((secondValue / firstValue) * text1);
+    } else {
+      setTotalValue(""); // Reset totalValue if either currency is not selected
+    }
   }
+
   function clear() {
-    // setTotalValue();
-    // setSecondValue();
-    // setFirstValue();
+    // setTotalValue("");
+    // setSecondValue("");
+    // setFirstValue("");
     // setText1(1);
-    // ref.current.value = "";
-    window.location.reload(false);
+    ref.current.value = "";
   }
+
   console.log(currencies);
   return (
     <div className="w-full h-screen flex flex-col items-center justify-center text-black">
