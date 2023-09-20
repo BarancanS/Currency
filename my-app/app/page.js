@@ -14,7 +14,7 @@ const Page = () => {
   }, [firstValue, secondValue, text1]);
   const getApi = async () => {
     return fetch(
-      "http://data.fixer.io/api/latest?access_key=1ebcee8d236f29a6525a4178da7f9ab9"
+      "https://data.fixer.io/api/latest?access_key=1ebcee8d236f29a6525a4178da7f9ab9"
     )
       .then((response) => response.json())
       .then((data) => {
