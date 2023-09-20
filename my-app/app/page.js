@@ -58,7 +58,9 @@ const Page = () => {
             className="p-2 border rounded-md text-lg text-black"
             onChange={handleSelect}
           >
-            <option value="">Select Currency</option>
+            <option value="" selected>
+              Select Currency
+            </option>
             {Object.keys(currencies).map((currency, index) => {
               return (
                 <option key={index} value={currencies[currency]}>
@@ -80,7 +82,9 @@ const Page = () => {
             className="p-2 border rounded-md text-lg text-black"
             onChange={handleSelectSecond}
           >
-            <option value="">Select Currency</option>
+            <option value="" selected>
+              Select Currency
+            </option>
             {Object.keys(currencies).map((currency, index) => {
               return (
                 <option key={index} value={currencies[currency]}>
