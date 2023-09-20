@@ -96,7 +96,7 @@ const Page = () => {
       <div className="flex flex-col gap-4 text-white">
         <button
           onClick={calculate}
-          className="bg-blue-800 px-4 py-2 rounded-md hover:bg-blue-600 transition-all duration-300"
+          className="bg-blue-800 px-4 py-2 rounded-md mt-4 hover:bg-blue-600 transition-all duration-300"
         >
           Calculate
         </button>
