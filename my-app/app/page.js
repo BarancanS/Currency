@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
-
+import Head from "next/head";
 const Page = () => {
   const [currencies, setCurrencies] = useState({});
   const [text1, setText1] = useState(1);
@@ -44,72 +44,80 @@ const Page = () => {
   }
   console.log(currencies);
   return (
-    <div className="w-full h-screen flex flex-col items-center justify-center text-black">
-      <h1 className="text-white text-4xl mb-4">Currency App</h1>
-      <div className="flex flex-col gap-2">
+    <div>
+      <Head>
+        <meta
+          http-equiv="Content-Security-Policy"
+          content="upgrade-insecure-requests"
+        ></meta>
+      </Head>
+      <div className="w-full h-screen flex flex-col items-center justify-center text-black">
+        <h1 className="text-white text-4xl mb-4">Currency App</h1>
         <div className="flex flex-col gap-2">
-          <input
-            type="number"
-            ref={ref}
-            value={text1}
-            onChange={(e) => setText1(e.target.value)}
-            className="p-2 border rounded-md text-lg text-black"
-          />
-          <select
-            name="currencies"
-            className="p-2 border rounded-md text-lg text-black"
-            onChange={handleSelect}
-          >
-            <option value="" selected>
-              Select Currency
-            </option>
-            {Object.keys(currencies).map((currency, index) => {
-              return (
-                <option key={index} value={currencies[currency]}>
-                  {currency}
-                </option>
-              );
-            })}
-          </select>
+          <div className="flex flex-col gap-2">
+            <input
+              type="number"
+              ref={ref}
+              value={text1}
+              onChange={(e) => setText1(e.target.value)}
+              className="p-2 border rounded-md text-lg text-black"
+            />
+            <select
+              name="currencies"
+              className="p-2 border rounded-md text-lg text-black"
+              onChange={handleSelect}
+            >
+              <option value="" selected>
+                Select Currency
+              </option>
+              {Object.keys(currencies).map((currency, index) => {
+                return (
+                  <option key={index} value={currencies[currency]}>
+                    {currency}
+                  </option>
+                );
+              })}
+            </select>
+          </div>
+          <div className="flex flex-col-reverse gap-2">
+            <input
+              type="number"
+              ref={ref}
+              value={totalValue}
+              className="p-2 border rounded-md text-lg text-black"
+            />
+            <select
+              name="currencies"
+              className="p-2 border rounded-md text-lg text-black"
+              onChange={handleSelectSecond}
+            >
+              <option value="" selected>
+                Select Currency
+              </option>
+              {Object.keys(currencies).map((currency, index) => {
+                return (
+                  <option key={index} value={currencies[currency]}>
+                    {currency}
+                  </option>
+                );
+              })}
+            </select>
+          </div>
         </div>
-        <div className="flex flex-col-reverse gap-2">
-          <input
-            type="number"
-            ref={ref}
-            value={totalValue}
-            className="p-2 border rounded-md text-lg text-black"
-          />
-          <select
-            name="currencies"
-            className="p-2 border rounded-md text-lg text-black"
-            onChange={handleSelectSecond}
+        <div className="flex flex-row mt-2 gap-2 text-white">
+          <button
+            onClick={calculate}
+            className="bg-blue-800 px-4 py-2 rounded-md hover:bg-blue-600 transition-all duration-300"
           >
-            <option value="" selected>
-              Select Currency
-            </option>
-            {Object.keys(currencies).map((currency, index) => {
-              return (
-                <option key={index} value={currencies[currency]}>
-                  {currency}
-                </option>
-              );
-            })}
-          </select>
+            Calculate
+          </button>
+          <button
+            onClick={clear}
+            className="bg-blue-800 px-4 py-2 rounded-md hover:bg-blue-600 transition-all duration-300"
+          >
+            Clear
+          </button>
         </div>
-      </div>
-      <div className="flex flex-row mt-2 gap-2 text-white">
-        <button
-          onClick={calculate}
-          className="bg-blue-800 px-4 py-2 rounded-md hover:bg-blue-600 transition-all duration-300"
-        >
-          Calculate
-        </button>
-        <button
-          onClick={clear}
-          className="bg-blue-800 px-4 py-2 rounded-md hover:bg-blue-600 transition-all duration-300"
-        >
-          Clear
-        </button>
       </div>
     </div>
   );
