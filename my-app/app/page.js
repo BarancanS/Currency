@@ -40,7 +40,7 @@ const Page = () => {
     // ref.current.value = "";
     window.location.reload(false);
   }
-
+  console.log(currencies);
   return (
     <div className="w-full h-screen flex flex-col items-center justify-center text-black">
       <h1 className="text-white text-4xl mb-4">Currency App</h1>
