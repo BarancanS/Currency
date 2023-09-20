@@ -53,6 +53,7 @@ const Page = () => {
     // setFirstValue("");
     // setText1(1);
     ref.current.value = "";
+    window.location.reload(false);
   }
   return (
     <div className="w-full h-screen flex flex-col items-center justify-center text-black">
