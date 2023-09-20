@@ -102,7 +102,7 @@ const Page = () => {
         </button>
         <button
           onClick={clear}
-          className="bg-blue-800 px-4 py-2 rounded-md hover:bg-blue-600 transition-all duration-300"
+          className="bg-blue-800 px-4 py-2 rounded-md mt-4 hover:bg-blue-600 transition-all duration-300"
         >
           Clear
         </button>
