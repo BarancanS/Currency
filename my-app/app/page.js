@@ -16,11 +16,16 @@ const Page = () => {
 
   const getApi = async () => {
     return fetch(
-      "https://api.exchangeratesapi.io/v1/latest?access_key=7327f82b819938c3a084f4f8d0c1be94"
+      "https://api.apilayer.com/currency_data/live?base=USD&symbols=EUR,GBP",
+      {
+        headers: {
+          apikey: "cnQzjVDhxL2K5kedT2O9A9SYhgCKr8yC",
+        },
+      }
     )
       .then((response) => response.json())
       .then((data) => {
-        setCurrencies(data.rates);
+        setCurrencies(data.quotes);
       })
       .catch((err) => {
         console.log(err);
