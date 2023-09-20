@@ -42,15 +42,16 @@ const Page = () => {
   }
 
   return (
-    <div className="w-full h-screen flex flex-col gap-2 items-center justify-center text-black">
+    <div className="w-full h-screen flex flex-col items-center justify-center text-black">
       <h1 className="text-white text-4xl mb-4">Currency App</h1>
       <div className="flex flex-col gap-2">
-        <div className="flex max-md:flex-col flex-row gap-2">
+        <div className="flex flex-col gap-2">
           <input
             type="number"
             ref={ref}
             value={text1}
             onChange={(e) => setText1(e.target.value)}
+            className="text-black"
           />
           <select name="" id="" className="text-black" onChange={handleSelect}>
             <option value="">Select Currency</option>
@@ -63,8 +64,13 @@ const Page = () => {
             })}
           </select>
         </div>
-        <div className="flex max-md:flex-col-reverse flex-row gap-2">
-          <input type="number" ref={ref} value={totalValue} />
+        <div className="flex flex-col gap-2">
+          <input
+            type="number"
+            ref={ref}
+            value={totalValue}
+            className="text-black"
+          />
           <select
             name=""
             id=""
@@ -82,7 +88,7 @@ const Page = () => {
           </select>
         </div>
       </div>
-      <div className="flex flex-row gap-2 text-white">
+      <div className="flex flex-col gap-2 text-white">
         <button
           onClick={calculate}
           className="bg-blue-800 p-2 rounded-lg hover:scale-105 transition-all duration-500"
