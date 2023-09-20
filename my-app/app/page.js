@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
-
+import Select from "react-select";
 const Page = () => {
   const [currencies, setCurrencies] = useState({});
   const [text1, setText1] = useState(1);
@@ -53,22 +53,16 @@ const Page = () => {
             onChange={(e) => setText1(e.target.value)}
             className="p-2 border rounded-md text-lg text-black"
           />
-          <select
-            name="currencies"
-            className="p-2 border rounded-md text-lg text-black"
-            onChange={handleSelect}
-          >
-            <option value="" selected>
-              Select Currency
-            </option>
-            {Object.keys(currencies).map((currency, index) => {
-              return (
-                <option key={index} value={currencies[currency]}>
-                  {currency}
-                </option>
-              );
-            })}
-          </select>
+          import Select from 'react-select'; // ...
+          <Select
+            options={Object.keys(currencies).map((currency) => ({
+              value: currencies[currency],
+              label: currency,
+            }))}
+            className="text-lg"
+            placeholder="Select Currency"
+            onChange={(selectedOption) => setFirstValue(selectedOption.value)}
+          />
         </div>
         <div className="flex flex-col gap-2">
           <input
@@ -77,22 +71,16 @@ const Page = () => {
             value={totalValue}
             className="p-2 border rounded-md text-lg text-black"
           />
-          <select
-            name="currencies"
-            className="p-2 border rounded-md text-lg text-black"
-            onChange={handleSelectSecond}
-          >
-            <option value="" selected>
-              Select Currency
-            </option>
-            {Object.keys(currencies).map((currency, index) => {
-              return (
-                <option key={index} value={currencies[currency]}>
-                  {currency}
-                </option>
-              );
-            })}
-          </select>
+          import Select from 'react-select'; // ...
+          <Select
+            options={Object.keys(currencies).map((currency) => ({
+              value: currencies[currency],
+              label: currency,
+            }))}
+            className="text-lg"
+            placeholder="Select Currency"
+            onChange={(selectedOption) => setFirstValue(selectedOption.value)}
+          />
         </div>
       </div>
       <div className="flex flex-col gap-2 text-white">
