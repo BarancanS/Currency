@@ -15,14 +15,16 @@ const Page = () => {
   }, [firstValue, secondValue, text1]);
 
   const getApi = async () => {
-    try {
-      const response = await axios.get(
-        "http://data.fixer.io/api/latest?access_key=1ebcee8d236f29a6525a4178da7f9ab9"
-      );
-      setCurrencies(response.data.rates || {}); // Ensure currencies is always an object
-    } catch (error) {
-      console.error(error);
-    }
+    return fetch(
+      "https://api.exchangeratesapi.io/v1/latest?access_key=7327f82b819938c3a084f4f8d0c1be94"
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        setCurrencies(data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   function handleSelect(e) {
