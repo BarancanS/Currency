@@ -48,11 +48,6 @@ const Page = () => {
   }
 
   function clear() {
-    // setTotalValue("");
-    // setSecondValue("");
-    // setFirstValue("");
-    // setText1(1);
-    ref.current.value = "";
     window.location.reload(false);
   }
   return (
