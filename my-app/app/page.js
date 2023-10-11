@@ -25,6 +25,7 @@ const Page = () => {
       .then((response) => response.json())
       .then((data) => {
         setCurrencies(data.quotes);
+        console.log(data);
       })
       .catch((err) => {
         console.log(err);
@@ -67,9 +68,7 @@ const Page = () => {
             className="p-2 border rounded-md text-lg text-black"
             onChange={handleSelect}
           >
-            <option value="" selected>
-              Select Currency
-            </option>
+            <option value="">Select Currency</option>
             {Object.keys(currencies).map((currency, index) => {
               return (
                 <option key={index} value={currencies[currency]}>
@@ -91,9 +90,7 @@ const Page = () => {
             className="p-2 border rounded-md text-lg text-black"
             onChange={handleSelectSecond}
           >
-            <option value="" selected>
-              Select Currency
-            </option>
+            <option value="">Select Currency</option>
             {Object.keys(currencies).map((currency, index) => {
               return (
                 <option key={index} value={currencies[currency]}>
